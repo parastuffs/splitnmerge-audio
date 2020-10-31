@@ -29,37 +29,47 @@ pactl load-module module-loopback sink=virtualMic
 
 3. Redirect the monitor of `virtualSp` to `virtualMic`
 ```
-pactl load-module module-loopback sink=Virtual1 source=Virtual2.monitor
+pactl load-module module-loopback sink=virtualMic source=virtualSp.monitor
 ```
 
 4. Redirect the monitor of `virtualSp` to the real speakers as well.
 ```
-pactl load-module module-loopback sink=alsa_output.pci-0000_00_1b.0.analog-stereo source=Virtual2.monitor
+pactl load-module module-loopback sink=alsa_output.pci-0000_00_1b.0.analog-stereo source=virtualSp.monitor
 ```
 Where the name of the sink to which I want to redirect is listed through
 ```
 pactl list short sinks
 0       alsa_output.pci-0000_00_1b.0.analog-stereo      module-alsa-card.c      s32le 2ch 44100Hz       RUNNING
-1       Virtual1        module-null-sink.c      float32le 2ch 44100Hz   RUNNING
-2       Virtual2        module-null-sink.c      float32le 2ch 44100Hz   IDLE
+1       virtualMic      module-null-sink.c      float32le 2ch 44100Hz   RUNNING
+2       virtualSp       module-null-sink.c      float32le 2ch 44100Hz   RUNNING
+
 ```
 We can also give the last `pactl` command the id of the sink instead of its name.
 
 5. In `pavucontrol`, set and check the following:
 - Input Devices: default fallback on `Monitor of virtualMic`
+
+![pa input devices](images/pa_input_devices.png)
+
 - Output Devices: default fallback to your speakers.
 - Recording:
   - Loopback to `virtualMic` from real mic
   - Loopback to `virtualMic` from Monitor of `virtualSp`
   - Loopback to speakers from Monitor of `virtualSp`
-  - Recodring app (Discord, Audacity, etc.) from Monitor of `virtualMic`
+  - Recording app (Discord, Audacity, etc.) from Monitor of `virtualMic`
+
+![pa recording](images/pa_recording.png)
+
 **Check that they are all unmuted!**
+
 - Playback:
   - Loopback of real mic on `virtualMic`
   - Loopback from Monitor of `virtualSp` on `virtualMic` --> music to your virtual mic, this is the level to adjust for the broadcast only
   - Loopback from Monitor of `virtualSp` on speakers --> you can still ear your own music, changing this level will only update the volume for *you*
   - Output of your discussion app (Discord, etc.)  on speakers
   - Music on `virtualSp` --> changing this level will modify the volume for you *and* the broadcast
+
+![pa playback](images/pa_playback.png)
 
 Check the references for more details.
 
