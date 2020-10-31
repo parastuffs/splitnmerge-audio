@@ -1,7 +1,7 @@
 # Split'n'Merge Audio
 The aim of this project is to find a way to merge different sources of audio into a virtual mic.
 
-## Jack
+## ~~Jack~~
 First step: try to install and run a JACK server.
 
 https://wiki.archlinux.fr/Jack
