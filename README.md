@@ -1,6 +1,9 @@
 # Split'n'Merge Audio
 The aim of this project is to find a way to merge different sources of audio into a virtual mic.
 
+## DiscoBot
+[Check it here](Discord_music_bot.md).
+
 ## Jack
 First step: try to install and run a JACK server.
 
