@@ -4,7 +4,7 @@ The aim of this project is to find a way to merge different sources of audio int
 ## DiscoBot
 [Check it here](Discord_music_bot.md).
 
-## Jack
+## ~~Jack~~
 First step: try to install and run a JACK server.
 
 https://wiki.archlinux.fr/Jack
