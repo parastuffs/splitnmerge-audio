@@ -1,4 +1,5 @@
 # DiscoBot: a Discord user only for music
+How can you create a fully-control discord user in a separate instance, just to play music during your games?
 
 ## Open two instances of the Discord app at the same time
 Opening a second instance in a web browser is not enough as it does not offer the settings.
@@ -34,6 +35,6 @@ pactl load-module module-null-sink sink_name=virtualMic sink_properties=device.d
 2. Disable all `Voice Processing` features.
 ![pa recording](images/discobot_discord_voice_processing.png)
 
-3. Each individual user can now manage the music volume to its liking, but your still in charge of the ambiance.
+3. Each individual user can now manage the music volume to its liking, but you're still in charge of the ambiance.
 ![pa recording](images/discobot_discord_bot_options.png)
 
